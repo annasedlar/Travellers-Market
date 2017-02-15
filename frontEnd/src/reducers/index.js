@@ -10,10 +10,14 @@ import WeatherReducer from './WeatherReducer';
 
 import MovieReducer from './MovieReducer';
 
+import GetHomeReducer from './GetHomeReducer';
+
 //pass into the object, each particular reducer (new files in reducers folder) 
 const rootReducer = combineReducers({
 	weather: WeatherReducer,
-	movie: MovieReducer
+	movie: MovieReducer,
+	//can access later on by state.home (which is equal to the return value of the GETHOMEREDUCER file/function)
+	home: GetHomeReducer
 
 });
 

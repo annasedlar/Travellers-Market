@@ -6,7 +6,7 @@ class Navigation extends Component{
 	render(){
 		return(
 			<div className="col-xs-12 container category-header">
-				<div className="navbar">Tapistries || Jewelery || Trinkets || Natural || Consumables</div>
+				<div className="navbar">Tapestries || Jewelery || Trinkets || Natural || Consumables</div>
 				<div className="col-xs-12 col-sm-6">
 					<SearchBar />
 				</div>

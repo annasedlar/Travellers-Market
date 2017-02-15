@@ -1,3 +1,28 @@
+
+li{
+  font-size: 20px;
+}
+
+li ul{
+  font-size: 14px;
+}
+
+h1{
+  text-decoration: underline; 
+  color: navy;
+}
+
+.auction_titles{
+  margin: auto;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+img{
+  max-width: 500px; 
+  max-height:  500px;
+}
+
 .App {
   text-align: center;
   font-family: Julius Sans One, Josefin Sans, Sans Serif;

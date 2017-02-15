@@ -6,7 +6,7 @@ var config = require ('../config/config');
 //include mysql
 var mysql = require('mysql'); 
 
-//set up connectino to use over and over
+//set up connection to use over and over
 var connection = mysql.createConnection({
 	host: config.host,
 	user: config.user,

@@ -43,7 +43,7 @@ class SearchBar extends Component {
 	}
 
 	render(){
-		console.log(this.props);
+		// console.log(this.props);
 		if(this.props.weatherData == null){
 			var weatherData = "";
 		}else{
