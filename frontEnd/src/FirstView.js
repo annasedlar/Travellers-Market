@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Navigation from './Navigation';
 
-const photoURL = './placeholderpic.jpg'
+const photoURL = 'http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0191/1154/sultan_damask_blue_and_gold__shop_preview.png';
 
 
 

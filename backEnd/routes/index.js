@@ -22,7 +22,7 @@ connection.connect();
 router.get('/getHomeAuctions', function(req, res, next) {
 	var auctionsQuery = "Select * FROM auctions" +
 		" INNER JOIN images ON images.auction_id = auctions.id " +
-		" limit 10";
+		" limit 12";
 	connection.query(auctionsQuery, (error, results, fields)=>{
 		if (error) throw error; 
 		res.json(results);

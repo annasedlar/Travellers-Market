@@ -17,6 +17,17 @@ form{
 
 }
 
+.photo_holder{
+  max-height: 50%;
+  border: none !important;
+}
+
+#placeholder_pic{
+  width: 80%;
+  margin: auto;
+  height: 400px;
+}
+
 .register{
   background-color: lightgray;
   height: 500px;
@@ -30,9 +41,10 @@ form{
   margin-right: 20%;
 }
 
-img{
-  max-width: 500px; 
-  max-height:  500px;
+#auction_photo{
+  max-width: 100%;
+  max-height:  100%;
+  border: none;
 }
 
 .App {
@@ -79,8 +91,9 @@ img{
 .best-examples div, .shop-by-region-examples div, .shop-by-category-examples div{
   margin: auto;
   border: 1px dashed #5c5c64;
-  height:  300px;
+  height:  400px;
   background-color: #f5f5fd;
+  overflow: scroll;
 }
 
 

@@ -6,7 +6,9 @@ class Auction extends Component{
 			return(
 				<div>
 					<h2>{this.props.item.title}</h2>
-					<img src={this.props.item.url} />
+					<div className="photo_holder">
+						<img src={this.props.item.url} id="auction_photo"/>
+					</div>
 					<p>{this.props.item.desc}</p>
 				</div>
 			)
