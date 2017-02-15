@@ -81,7 +81,13 @@ class Home extends Component{
 						{homeAuctions[11]}
 					</div>	
 				</div>
+				<div className="col-xs-12 footer">
+					<h3>
+						This is the footer
+					</h3>
+				</div>
 			</div>
+
 		)
 	}
 };

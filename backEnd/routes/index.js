@@ -26,6 +26,7 @@ router.get('/getHomeAuctions', function(req, res, next) {
 	connection.query(auctionsQuery, (error, results, fields)=>{
 		if (error) throw error; 
 		res.json(results);
+		console.log(results);
 	})
   // res.render('index', { title: 'Express' });
 });

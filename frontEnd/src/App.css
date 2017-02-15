@@ -66,8 +66,10 @@ form{
 
 .header{
   background-color: #E6E6FA;
-  text-align: left;  position: fixed;
-  z-index: 9999
+  text-align: left;
+  position: fixed;
+  z-index: 9999;
+  border-bottom: 1px solid #5c5c64;
 }
 
 .category-header{
@@ -85,17 +87,30 @@ form{
 .best-examples, .shop-by-region-examples{
   margin-bottom: 20px;
   text-align: left;
+  padding: 10px;
 }
 
 
 .best-examples div, .shop-by-region-examples div, .shop-by-category-examples div{
   margin: auto;
-  border: 1px dashed #5c5c64;
   height:  400px;
   background-color: #f5f5fd;
   overflow: scroll;
+  padding: 10px;
 }
 
+.col-sm-3{
+  border: 1px dashed #5c5c64;
+  padding: 10px;
+}
+
+.footer{
+  background-color: #E6E6FA;
+  text-align: left; 
+  height: 85px;
+  margin-top: 100px;
+  border-top: 1px solid #5c5c64;
+}
 
 
 
