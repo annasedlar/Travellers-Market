@@ -24,7 +24,7 @@ class Home extends Component{
 			<div>
 				<h1>HOME</h1>
 				<div className="auction_titles">
-					{homeAuctions}
+					// {homeAuctions}
 				</div>
 			</div>
 		)
