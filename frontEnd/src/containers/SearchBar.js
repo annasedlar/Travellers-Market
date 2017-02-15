@@ -25,7 +25,7 @@ class SearchBar extends Component {
 
 	changeMovie(event){
 		this.setState({
-			MovieSearch: event.target.value
+			movieSearch: event.target.value
 		})
 	}
 
@@ -48,11 +48,13 @@ class SearchBar extends Component {
 			var weatherData = "";
 		}else{
 			var weatherData = this.props.weatherData.name; 
+			console.log(weatherData)
 		}
 		if(this.props.movieData == null){
 			var movieData = "";
 		}else{
-			var movieData = this.props.movieData.poster_path; 
+			var movieData = this.props.movieData;
+			console.log(movieData) 
 		}
 		return (
 			<div>

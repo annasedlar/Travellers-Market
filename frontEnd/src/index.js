@@ -35,7 +35,7 @@ import reducers from './reducers/index.js';
 // const theStore = middleWare(createStore); 
 // const theStoreWithMiddleware = theStore(reducers); 
 // OR write it like below:
-const theStoreWithMiddleware = applyMiddleware()(createStore)
+const theStoreWithMiddleware = applyMiddleware(reduxPromise)(createStore)
 
 ReactDOM.render(
 	//step SEVEN

@@ -1,4 +1,4 @@
-export default function (state = [], action){
+export default function (state = null, action){
 	console.log(action.type);
 	switch(action.type){
 		case 'getMovies': 

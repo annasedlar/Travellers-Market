@@ -21,7 +21,7 @@ const MovieURL = 'https://api.themoviedb.org/3/search/movie?api_key='+APIKEY+'&q
 export default function GetTheMovies(movieSearchString){
 	console.log("action running!", movieSearchString);
 	const fullMovieURL = MovieURL+ movieSearchString; 
-	const thePromise = $.getJSON(MovieURL);
+	const thePromise = $.getJSON(fullMovieURL);
 	console.log(thePromise); 
 	return{
 		type: 'getMovies',
