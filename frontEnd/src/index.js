@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import reduxPromise from 'redux-promise';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router'; 
+import Home from './containers/Home';
+import Register from './containers/Register';
+import Search from './containers/Search';
+import Login from './containers/Login'; 
+
 
 // To wire up redux we need: 
 // 1. provider( react-redux)
@@ -31,7 +37,7 @@ import reducers from './reducers/index.js';
 //step SIX
 // arg is the root reducer
 // const theStore = createStore(reducers);
-// const middleWare = applyMiddleware(reduxPromise);
+// const middleWare = applyMiddleware(reduxPromise); ***Make sure to include reduxPromise as arg!
 // const theStore = middleWare(createStore); 
 // const theStoreWithMiddleware = theStore(reducers); 
 // OR write it like below:
@@ -40,7 +46,33 @@ const theStoreWithMiddleware = applyMiddleware(reduxPromise)(createStore)
 ReactDOM.render(
 	//step SEVEN
 	<Provider store={theStoreWithMiddleware(reducers)}>	
-  		<App />
+		<Router history={browserHistory}>
+  			<Route path="/" component={App}>
+	  			<IndexRoute component={Home} />
+  				<Route path="login" component={Login} />
+  				<Route path="register" component={Register} />
+  				<Route path="search/:term" component={Search} />
+  			</Route>
+  		</Router>
   	</Provider>,
   document.getElementById('root')
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
