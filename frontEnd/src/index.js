@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import reduxPromise from 'redux-promise';
+
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'; 
+
 import Home from './containers/Home';
 import Register from './containers/Register';
 import Search from './containers/Search';
@@ -49,9 +51,9 @@ ReactDOM.render(
 		<Router history={browserHistory}>
   			<Route path="/" component={App}>
 	  			<IndexRoute component={Home} />
-  				<Route path="login" component={Login} />
-  				<Route path="register" component={Register} />
-  				<Route path="search/:term" component={Search} />
+  				<Route path="/login" component={Login} />
+  				<Route path="/register" component={Register} />
+  				<Route path="/search/:term" component={Search} />
   			</Route>
   		</Router>
   	</Provider>,
