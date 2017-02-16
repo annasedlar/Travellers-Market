@@ -157,7 +157,7 @@ input{
 .col-sm-3{
   border: 1px dashed #5c5c64;
   padding: 10px;
-    box-shadow: 2px 2px grey;
+  box-shadow: 2px 2px grey;
 }
 
 .footer{

@@ -104,11 +104,12 @@ router.post('/login', (req, res, next)=>{
 				//we have a match on username and the hashed password is good
 				var token = randToken.generate(32);
 				insertToken = "UPDATE users SET token=? token_exp=DATE_ADD(NOW(), INTERVAL1 HOUR WHERE username=?";
-				connection.query(insertToken, [token, username], (error, results)=>{
+				connection.query(insertToken, [token, username], (error2, results2, fields2)=>{
 					console.log(token); 
 					res.json({
 						msg: "found user",
-						token: token
+						token: token,
+						username: username 
 					})
 				})
 			}
