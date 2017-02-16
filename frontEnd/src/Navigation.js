@@ -8,7 +8,7 @@ class Navigation extends Component{
 			<div className="col-xs-12 container category-header">
 				<div className="col-xs-12 col-sm-6">
 					<div class="dropdown">
-					  <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    Search by Region
 					  </button>
 					  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -20,7 +20,7 @@ class Navigation extends Component{
 					  </div>
 					</div>
 					<div class="dropdown">
-					  <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    Search by Country
 					  </button>
 					  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">

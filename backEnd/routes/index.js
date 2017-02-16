@@ -6,6 +6,8 @@ var config = require ('../config/config');
 //include mysql
 var mysql = require('mysql'); 
 
+var randToken = require('rand-token');
+
 //set up connection to use over and over
 var connection = mysql.createConnection({
 	host: config.host,
@@ -43,8 +45,6 @@ router.get('/getHomeAuctions', function(req, res, next) {
   // res.render('index', { title: 'Express' });
 });
 
-
-
 //make a register post route to handle registration!
 router.post('/register', (req, res, next)=>{
 	var checkDupeUserQuery = "SELECT * FROM users WHERE username= ?";
@@ -69,4 +69,64 @@ router.post('/register', (req, res, next)=>{
 })
 
 
+
+//2. run hashSync on given password
+// var hashedPassword = bcrypt.hashSync('x'); 
+// console.log(hashedPassword);
+// //3. compare hashed password with saved hash
+// var checkHash = bcrypt.compareSync("x", hashedPassword);
+// console.log(checkHash);
+// var checkHash2 = bcrypt.compareSync("bacon", hashedPassword);
+// console.log(checkHash2);
+
+router.post('/login', (req, res, next)=>{
+	var username= req.body.username;
+	var password = req.body.password;
+	var findUserQuery = "SELECT * FROM users WHERE username = ?";
+	connection.query(findUserQuery, [req.body.username], (error, results, fields)=>{
+		if(error) throw error; 
+		if(results.length === 0){
+			res.json({
+				msg: "badUserName"
+			});
+		}else{
+		// this is a valid username, we know because results.length >0;
+		//results is AN ARRAY! Always grab 0th result
+			checkHash = bcrypt.compareSync(password, results[0].password);
+			console.log("$$$$$$$############################");
+			console.log(checkHash);
+			console.log("$$$$$$$############################");
+			if(checkHash === false){
+				res.json({
+					msg: "badPassword"
+				})
+			}else{
+				//we have a match on username and the hashed password is good
+				var token = randToken.generate(32);
+				insertToken = "INSERT INTO users (token, token_exp) VALUES (?, CURDATE())"
+				connection.query(insertToken, [token], (error, results)=>{
+					console.log(token); 
+					res.json({
+						msg: "found user",
+						token: token
+					})
+				})
+			}
+		}
+	});
+	// res.json(req.body); 
+});
+
+
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+

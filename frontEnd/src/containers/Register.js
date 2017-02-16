@@ -56,14 +56,27 @@ class Register extends Component{
 		}
 		// this.props.registerResponse({message: "Test"});
 		return (
-			<div className="register">
-			<h1>REGISTER</h1>
-			<h2>{message}</h2>
-				<form onSubmit={this.registrationSumbit} >
-					<p>Username: <input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.checkUsername}/></p>
-					<p>Password:<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.checkPassword} /></p>
-					<input type="submit" value="Register!" />
-				</form>
+			<div className="register_photo">
+				<div className="register">
+				<h1>Register Here: </h1>
+				<h2>{message}</h2>
+					<form onSubmit={this.registrationSumbit} >
+						<p>Username: <input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.checkUsername}/></p>
+						<p>Password: <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.checkPassword} /></p>
+						<input type="submit" value="Submit"/>
+					</form>
+				</div>
+				<div className="col-xs-12 register_footer">
+					<div className="col-xs-6">
+						<h3>
+							© Traveller's Bazaar 2017
+						</h3>
+					</div>
+					<div className="col-xs-6">
+						<h4>Made with ❤️️ by <a href="http://www.github.com/annasedlar" target="_blank">Anna Sedlar</a>
+						</h4>
+					</div>
+				</div>
 			</div>
 		)
 	}
