@@ -6,7 +6,7 @@ import GetHomeAction from '../actions/GetHomeAction';
 import Auction from '../components/Auction';
 import Navigation from '../Navigation';
 
-const photoURL = 'http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0191/1154/sultan_damask_blue_and_gold__shop_preview.png';
+const photoURL = 'https://s-media-cache-ak0.pinimg.com/originals/fe/8d/24/fe8d240e1c621dec4ce62bb587d7b3cf.jpg';
 
 
 class Home extends Component{
@@ -28,13 +28,16 @@ class Home extends Component{
 		return (
 			<div>
 				<div className="col-xs-12 container header">
-					<h1>Traveller's Bazaar</h1>
+					<div class="col-xs-6"><h1>Traveller's Bazaar</h1></div>
+					<div className="navbar col-xs-6">
+						<ul>Tapestries</ul><ul>Jewelery</ul><ul>Trinkets</ul><ul>Natural</ul><ul>Consumables</ul>
+					</div>
 				</div>
 				<Navigation/>
 				<div className="col-xs-12 container-fluid">
+					<img src={photoURL} alt="placeholder pic" id="placeholder_pic"/>
 					<h1>Traveller's Bazaar is an international marketplace allowing travellers to share the
 					unique treasures they collect on the road with the world</h1>
-					<img src={photoURL} alt="placeholder pic" id="placeholder_pic"/>
 				</div>
 				<div className="col-xs-12 container best-examples">
 					<h2>See Hot Auctions</h2>
@@ -50,6 +53,7 @@ class Home extends Component{
 					<div className="col-xs-6 col-sm-3">
 						{homeAuctions[3]}
 					</div>
+					<div className="col-xs-12 mores">See More</div>
 				</div>
 				<div className="col-xs-12 container shop-by-region-examples">
 					<h2>See Regional Auctions</h2>
@@ -65,6 +69,7 @@ class Home extends Component{
 					<div className="col-xs-6 col-sm-3">
 						{homeAuctions[7]}
 					</div>	
+					<div className="col-xs-12 mores">See More</div>
 				</div>
 				<div className="col-xs-12 container shop-by-category-examples">
 					<h2>See Goods-Category Auctions</h2>
@@ -80,11 +85,18 @@ class Home extends Component{
 					<div className="col-xs-6 col-sm-3">
 						{homeAuctions[11]}
 					</div>	
+					<div className="col-xs-12 mores">See More</div>
 				</div>
 				<div className="col-xs-12 footer">
-					<h3>
-						This is the footer
-					</h3>
+					<div className="col-xs-6">
+						<h3>
+							© Traveller's Bazaar 2017
+						</h3>
+					</div>
+					<div className="col-xs-6">
+						<h4>Made with ❤️️ by <a href="http://www.github.com/annasedlar" target="_blank">Anna Sedlar</a>
+						</h4>
+					</div>
 				</div>
 			</div>
 

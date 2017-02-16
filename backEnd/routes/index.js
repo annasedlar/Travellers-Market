@@ -17,6 +17,18 @@ var connection = mysql.createConnection({
 //our connection will run
 connection.connect();
 
+//encryption 
+//1. include module
+var bcrypt = require('bcrypt-nodejs');
+
+//2. run hashSync on given password
+// var hashedPassword = bcrypt.hashSync('x'); 
+// console.log(hashedPassword);
+// //3. compare hashed password with saved hash
+// var checkHash = bcrypt.compareSync("x", hashedPassword);
+// console.log(checkHash);
+// var checkHash2 = bcrypt.compareSync("bacon", hashedPassword);
+// console.log(checkHash2);
 
 /* GET top 10 auctions page. */
 router.get('/getHomeAuctions', function(req, res, next) {
@@ -43,7 +55,7 @@ router.post('/register', (req, res, next)=>{
 			//go ahead and register this person
 			var insertUserQuery = "INSERT INTO users (username, password) VALUES " + 
 				"(?, ?)";
-				connection.query(insertUserQuery,[req.body.username, req.body.password], (error, results, fields)=>{
+				connection.query(insertUserQuery,[req.body.username, bcrypt.hashSync(req.body.password)], (error, results, fields)=>{
 					res.json({msg:"userInserted"
 				});
 			});
