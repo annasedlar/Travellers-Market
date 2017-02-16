@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'; 
 import LoginAction from '../actions/LoginAction';
 import {browserHistory} from 'react-router';
+import Navigation from '../Navigation';
 
 class Login extends Component{
 	constructor(props) {
@@ -57,6 +58,8 @@ class Login extends Component{
 		}
 
 		return (
+			<div>
+				<Navigation/>
 			<div className="register_photo">
 				<div className="register">
 				<h1>Login: </h1>
@@ -79,6 +82,7 @@ class Login extends Component{
 					</div>
 				</div>
 			</div>
+		</div>
 		)
 	}
 };

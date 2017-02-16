@@ -27,12 +27,6 @@ class Home extends Component{
 			//{homeAuctions}
 		return (
 			<div>
-				<div className="col-xs-12 container header">
-					<div class="col-xs-6"><h1>Traveller's Bazaar</h1></div>
-					<div className="navbar col-xs-6">
-						<ul>Tapestries</ul><ul>Jewelery</ul><ul>Trinkets</ul><ul>Natural</ul><ul>Consumables</ul>
-					</div>
-				</div>
 				<Navigation/>
 				<div className="col-xs-12 container-fluid">
 					<img src={photoURL} alt="placeholder pic" id="placeholder_pic"/>

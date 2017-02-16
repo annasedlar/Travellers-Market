@@ -82,12 +82,12 @@ router.post('/register', (req, res, next)=>{
 router.post('/login', (req, res, next)=>{
 	var username= req.body.username;
 	var password = req.body.password;
-	var findUserQuery = "SELECT * FROM users WHERE username = ?";
+	var findUserQuery = "SELECT password FROM users WHERE username = ?";
 	connection.query(findUserQuery, [req.body.username], (error, results, fields)=>{
 		if(error) throw error; 
 		if(results.length === 0){
 			res.json({
-				msg: "badUserName"
+				msg: "bad username"
 			});
 		}else{
 		// this is a valid username, we know because results.length >0;
@@ -98,13 +98,13 @@ router.post('/login', (req, res, next)=>{
 			console.log("$$$$$$$############################");
 			if(checkHash === false){
 				res.json({
-					msg: "badPassword"
+					msg: "bad password"
 				})
 			}else{
 				//we have a match on username and the hashed password is good
 				var token = randToken.generate(32);
-				insertToken = "INSERT INTO users (token, token_exp) VALUES (?, CURDATE())"
-				connection.query(insertToken, [token], (error, results)=>{
+				insertToken = "UPDATE users SET token=? token_exp=DATE_ADD(NOW(), INTERVAL1 HOUR WHERE username=?";
+				connection.query(insertToken, [token, username], (error, results)=>{
 					console.log(token); 
 					res.json({
 						msg: "found user",

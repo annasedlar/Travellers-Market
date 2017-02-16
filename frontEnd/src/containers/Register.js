@@ -1,7 +1,8 @@
 import React, {Component} from 'react'; 
 import {connect} from 'react-redux'; 
 import {bindActionCreators} from 'redux'; 
-import RegisterAction from '../actions/RegisterAction'
+import RegisterAction from '../actions/RegisterAction';
+import Navigation from '../Navigation';
 
 class Register extends Component{
 	constructor(props){
@@ -56,15 +57,17 @@ class Register extends Component{
 		}
 		// this.props.registerResponse({message: "Test"});
 		return (
+			<div>
+				<Navigation />		
 			<div className="register_photo">
 				<div className="register">
-				<h1>Register Here: </h1>
-				<h2>{message}</h2>
-					<form onSubmit={this.registrationSumbit} >
-						<p>Username: <input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.checkUsername}/></p>
-						<p>Password: <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.checkPassword} /></p>
-						<input type="submit" value="Submit"/>
-					</form>
+					<h1>Register Here: </h1>
+					<h2>{message}</h2>
+						<form onSubmit={this.registrationSumbit} >
+							<p>Username: <input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.checkUsername}/></p>
+							<p>Password: <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.checkPassword} /></p>
+							<input type="submit" value="Submit"/>
+						</form>
 				</div>
 				<div className="col-xs-12 register_footer">
 					<div className="col-xs-6">
@@ -78,6 +81,7 @@ class Register extends Component{
 					</div>
 				</div>
 			</div>
+		</div>
 		)
 	}
 };

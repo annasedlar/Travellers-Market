@@ -10,10 +10,33 @@ li ul{
   font-size: 14px;
 }
 
+li ul a:hover{
+  background-color: lavender;
+  color: white;
+}
+
+button a{
+  color: white;
+}
+
+.header{
+  background-color: #E6E6FA;
+  position: fixed;
+  z-index: 9999;
+  border-bottom: 1px solid #5c5c64;
+  height: 10%;
+}
+
 .header h1{
   text-decoration: underline; 
   color: navy;
   text-align: left;
+}
+
+.header button{
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
 input{
@@ -37,7 +60,7 @@ input{
   height: 300px;
   width: 500px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 150px;
   box-shadow: 2px 2px grey;
 }
 
@@ -47,11 +70,13 @@ input{
 
 .register_photo{
   background-image: url('https://s-media-cache-ak0.pinimg.com/originals/fe/8d/24/fe8d240e1c621dec4ce62bb587d7b3cf.jpg');
-  height: 80vh;
+  height: 90vh;
+  width: 100%;
+  position: fixed;
 }
 
 .register_footer{
-  margin-top: 550px;
+  margin-top: 440px;
   background-color: #E6E6FA;
   text-align: left; 
   height: 85px;
@@ -84,16 +109,13 @@ input{
   font-family: Julius Sans One, Josefin Sans, Sans Serif;
 }
 
-.header{
-  background-color: #E6E6FA;
-  position: fixed;
-  z-index: 9999;
-  border-bottom: 1px solid #5c5c64;
-  height: 10%;
-}
-
 .category-header{
   margin-top: 100px;
+}
+
+#dropdownMenuButton{
+  float: left;
+  display: inline-block;
 }
 
 .navbar{
@@ -149,8 +171,6 @@ input{
 .footer h4{
   float: right;
 }
-
-
 
 
 
