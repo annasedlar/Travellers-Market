@@ -10,7 +10,7 @@ import Home from './containers/Home';
 import Register from './containers/Register';
 import Search from './containers/Search';
 import Login from './containers/Login'; 
-
+import AuctionItem from './containers/AuctionItem';
 
 // To wire up redux we need: 
 // 1. provider( react-redux)
@@ -54,6 +54,7 @@ ReactDOM.render(
   				<Route path="/login" component={Login} />
   				<Route path="/register" component={Register} />
   				<Route path="/search/:term" component={Search} />
+          <Route path="/auction/:auctionId" component={AuctionItem} />
   			</Route>
   		</Router>
   	</Provider>,

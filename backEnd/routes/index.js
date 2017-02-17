@@ -45,6 +45,18 @@ router.get('/getHomeAuctions', function(req, res, next) {
   // res.render('index', { title: 'Express' });
 });
 
+
+//Get a single auction's data based on the ID in the URL
+router.get('/getAuctionItem/:auctionId', (req, res, next)=>{
+	var theAuctionId = req.params.auctionId; 
+	var getAuctionQuery = "SELECT * FROM auctions WHERE id = ?";
+		// "INNER JOIN images ON images.auction_id = auctions.id " + 
+		// " limit 12";
+	connection.query(getAuctionQuery, [theAuctionId], (error, results, fields)=>{
+		res.json(results); 
+		})
+});
+
 //make a register post route to handle registration!
 router.post('/register', (req, res, next)=>{
 	var checkDupeUserQuery = "SELECT * FROM users WHERE username= ?";
@@ -117,6 +129,12 @@ router.post('/login', (req, res, next)=>{
 	});
 	// res.json(req.body); 
 });
+
+
+router.post('/submitBid', (req, res, next)=>{
+	res.josn(req.body)
+})
+
 
 
 module.exports = router;

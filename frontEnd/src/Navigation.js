@@ -3,7 +3,9 @@ import './App.css';
 import SearchBar from './containers/SearchBar'
 
 class Navigation extends Component{
+
 	render(){
+		var name = this.props.usernameToDisplay;
 		return(
 			<div>
 				<div className="col-xs-12 container header">
@@ -16,7 +18,7 @@ class Navigation extends Component{
 					<button className="btn btn-info" type="button"><a href="/register">Sign Up</a></button>
 					</div>
 					<div className="col-xs-6">
-						<h4>Hello, {this.props.usernameToDisplay}</h4>
+						<h4>{name}</h4>
 					</div>
 					<div className="navbar col-xs-6">
 						<ul><a href="#">Tapestries</a></ul>

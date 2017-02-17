@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
+
 
 class Auction extends Component{
 	render(){
 		console.log(this.props.item);
+		var auctionItem = this.props.item;
+		var auctionLink = "/auction/" + auctionItem.id; 
 			return(
 				<div>
-					<h2>{this.props.item.title}</h2>
+					<h2><Link to={auctionLink}>{auctionItem.title}</Link></h2>
 					<div className="photo_holder">
-						<img src={this.props.item.url} id="auction_photo"/>
+						<Link to={auctionLink}><img src={auctionItem.url} id="auction_photo"/></Link>
 					</div>
-					<p>{this.props.item.desc}</p>
+					<p><Link to={auctionLink}>{auctionItem.desc}</Link></p>
 				</div>
 			)
 	}
