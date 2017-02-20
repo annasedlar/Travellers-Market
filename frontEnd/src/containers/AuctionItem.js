@@ -7,6 +7,7 @@ import Auction from '../components/Auction';
 import Navigation from '../Navigation';
 import GetAuctionDetail from '../actions/GetAuctionDetail';
 import SubmitBidAction from '../actions/SubmitBidAction';
+import $ from 'jquery';
 
 const photoURL = 'https://s-media-cache-ak0.pinimg.com/originals/fe/8d/24/fe8d240e1c621dec4ce62bb587d7b3cf.jpg';
 
@@ -14,7 +15,8 @@ const photoURL = 'https://s-media-cache-ak0.pinimg.com/originals/fe/8d/24/fe8d24
 class AuctionItem extends Component{
 	constructor(props) {
 		super(props);
-		this.submitBid = this.submitBid.bind(this); 
+		this.submitBid = this.submitBid.bind(this);
+		this.makePayment = this.makePayment.bind(this); 
 	}
 	componentDidMount() {
 			//we have access to params thx to router
@@ -41,6 +43,36 @@ class AuctionItem extends Component{
 				this.props.submitBidToExpress(bidAmount, auctionItem.id, userToken)
 			}
 		}
+	}
+
+	makePayment(){
+		var userToken = this.props.userToken;
+		console.log("test")
+		var handler = window.StripeCheckout.configure({
+			key: "pk_test_NwEkUquabrRIDlSKdGitMzzk",
+			locale: "auto",
+			token: function(stripeToken){
+				console.log(stripeToken);
+				var theData = {
+					amount: 10 * 100,
+					stripeToken: stripeToken.id,
+					token: userToken
+				}
+				$.ajax({
+					method: 'POST',
+					url: "http://localhost:3000/stripe",
+					data: theData
+				}).done((data)=>{
+					console.log(data); 
+				})
+			}
+		});
+		console.log(handler); 
+		handler.open({
+			name: "Buy stuff from my auction site", 
+			description: "Pay for your auction", 
+			amount: 10 * 100, 
+		})
 	}
 
 	render(){
@@ -78,6 +110,7 @@ class AuctionItem extends Component{
 						<input type="number" placeholder="Enter your bid"/>
 						<button type="submit">Bid</button>
 					</form>
+					<button className="btn btn-primary" onClick={this.makePayment}>Pay</button>
 				</div>
 				</div>
 			</div>
