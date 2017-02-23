@@ -3,6 +3,16 @@ import './App.css';
 import SearchBar from './containers/SearchBar'
 
 class Navigation extends Component{
+	displayCategory(){
+		console.log("woo!")
+	}
+
+	regionDropDown(){
+		console.log('yippee!')
+	}
+	countryDropDown(){
+		console.log('alright!')
+	}
 
 	render(){
 		var name = this.props.usernameToDisplay;
@@ -21,17 +31,17 @@ class Navigation extends Component{
 						<h4>{name}</h4>
 					</div>
 					<div className="navbar col-xs-6">
-						<ul><a href="#">Tapestries</a></ul>
-						<ul><a href="#">Jewelery</a></ul>
-						<ul><a href="#">Trinkets</a></ul>
-						<ul><a href="#">Natural</a></ul>
-						<ul><a href="#">Consumables</a></ul>
+						<ul><a href="#" onClick={this.displayCategory}>Tapestries</a></ul>
+						<ul><a href="#" onClick={this.displayCategory}>Jewelery</a></ul>
+						<ul><a href="#" onClick={this.displayCategory}>Trinkets</a></ul>
+						<ul><a href="#" onClick={this.displayCategory}>Natural</a></ul>
+						<ul><a href="#" onClick={this.displayCategory}>Consumables</a></ul>
 					</div>
 				</div>
 				<div className="col-xs-12 container category-header">
 					<div className="col-xs-12 col-sm-6">
 						<div className="dropdown">
-						  <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" onClick={this.regionDropDown} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    Search by Region
 						  </button>
 						  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -43,7 +53,8 @@ class Navigation extends Component{
 						  </div>
 						</div>
 						<div className="dropdown">
-						  <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" onClick={this.countryDropDown}
+						   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    Search by Country
 						  </button>
 						  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
