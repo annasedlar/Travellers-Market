@@ -51,9 +51,7 @@ router.get('/getHomeAuctions', function(req, res, next) {
 //Get a single auction's data based on the ID in the URL
 router.get('/getAuctionItem/:auctionId', (req, res, next)=>{
 	var theAuctionId = req.params.auctionId; 
-	var getAuctionQuery = "SELECT * FROM auctions WHERE id = ?";
-		// "INNER JOIN images ON images.auction_id = auctions.id " + 
-		// " limit 12";
+	var getAuctionQuery = "SELECT * FROM auctions INNER JOIN images ON images.auction_id = auctions.id WHERE images.id= ?";
 	connection.query(getAuctionQuery, [theAuctionId], (error, results, fields)=>{
 		res.json(results); 
 		})

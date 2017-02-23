@@ -70,7 +70,7 @@ class Navigation extends Component{
 
 
 
-
+//CHECK WHAT ITS RETURNIGN
 function mapStatetoProps(state){
 	return{
 		usernameToDisplay: state.username

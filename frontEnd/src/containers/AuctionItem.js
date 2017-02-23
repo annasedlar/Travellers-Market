@@ -8,6 +8,7 @@ import Navigation from '../Navigation';
 import GetAuctionDetail from '../actions/GetAuctionDetail';
 import SubmitBidAction from '../actions/SubmitBidAction';
 import $ from 'jquery';
+import PaymentSuccess from './PaymentSuccess'
 
 const photoURL = 'https://s-media-cache-ak0.pinimg.com/originals/fe/8d/24/fe8d240e1c621dec4ce62bb587d7b3cf.jpg';
 
@@ -29,6 +30,8 @@ class AuctionItem extends Component{
 		var userToken = this.props.userToken;
 		if(userToken === undefined){
 			// route user to the login
+			console.log("You must log in")
+			
 		}else{
 			console.dir(event); 
 			var bidAmount = event.target[0].value;
@@ -64,6 +67,10 @@ class AuctionItem extends Component{
 					data: theData
 				}).done((data)=>{
 					console.log(data); 
+					console.log("express response ... and the response is... ")
+					if(data.msg = "paymentSuccess"){
+						<PaymentSuccess />
+					}
 				})
 			}
 		});
@@ -94,23 +101,21 @@ class AuctionItem extends Component{
 				<Navigation/>
 				<div className="col-xs-6 container best-examples">
 				<div>
-					<h4>This is what you clicked on:</h4>
 					<h2>{auctionItem.title}</h2>
 					<img src={auctionItem.url} id="auction_photo"/>
-					<h3>this is where a picture will go</h3> 
 					<p>{auctionItem.desc}</p>
 					</div>
 				</div>
 				<div className="col-xs-6 container best-examples">
 					<div>
-					<p>Current Bid: {auctionItem.current_bid}</p>
-					<p>High Bidder: {auctionItem.high_bidder_id}</p>
-					<p>Starting Bid: {auctionItem.starting_bid}</p>
+					<h3>Bidding starts at ${auctionItem.starting_bid}</h3>
+					<p>Current Bid: ${auctionItem.current_bid}</p>
+					<p>High Bidder ID: {auctionItem.high_bidder_id}</p>
 					<form onSubmit={this.submitBid}>
-						<input type="number" placeholder="Enter your bid"/>
+						<label>Place a bid <input type="number" placeholder="Enter your bid"/></label>
 						<button type="submit">Bid</button>
 					</form>
-					<button className="btn btn-primary" onClick={this.makePayment}>Pay</button>
+					<label>Are you the winner of this auction? <button className="btn btn-primary pay" onClick={this.makePayment}>Pay</button></label>
 				</div>
 				</div>
 			</div>

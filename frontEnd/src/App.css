@@ -1,5 +1,6 @@
 text{
-  font-family: Julius Sans One, Josefin Sans, Sans Serif;
+  font-family: Helvetica, Sans Serif;
+  font-weight: 100;
 }
 
 li{
@@ -17,6 +18,11 @@ li ul a:hover{
 
 button a{
   color: white;
+}
+
+.pay{
+  margin: auto;
+  padding-top:  5px;
 }
 
 .header{
@@ -41,6 +47,10 @@ button a{
 
 input{
   width: 300px;
+}
+
+label input{
+  width: 130px;
 }
 
 .photo_holder{
@@ -170,6 +180,14 @@ input{
 
 .footer h4{
   float: right;
+}
+
+.payment{
+  background-color: lightgray;
+  height:  700px;
+  width: 700px;
+  margin: auto;
+  text-align: center;
 }
 
 
